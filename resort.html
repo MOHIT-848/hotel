@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEHJAL'S RESORT</title>
+
+
+
+    <style>
+        /* PAGE FADE-IN */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5d7bd, #f2b594);
+            color: #222;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+
+        header {
+            background: linear-gradient(90deg, #7a2e1f, #a54330);
+            color: white;
+            text-align: center;
+            padding-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        header img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-bottom: 5px solid #a54330;
+            animation: fadeIn 1.4s ease;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 45px;
+            letter-spacing: 3px;
+            animation: slideDown 1s ease;
+        }
+
+        h2 {
+            margin-top: 10px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 26px;
+            opacity: 0.9;
+            animation: slideDown 1.4s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* NAV BAR */
+        nav {
+            background: #4a170f;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 25px;
+            font-size: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcf9f;
+            text-shadow: 0 0 12px #ffcf9f;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 32px;
+            color: #5a2418;
+            text-shadow: 0 0 8px rgba(0,0,0,0.2);
+        }
+
+        /* MENU SECTIONS */
+        .menu-section {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+            margin-bottom: 30px;
+
+            opacity: 0;
+            transform: translateY(40px);
+            animation: slideUp 1s ease forwards;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .menu-section:nth-child(1) { animation-delay: 0.2s; }
+        .menu-section:nth-child(2) { animation-delay: 0.4s; }
+        .menu-section:nth-child(3) { animation-delay: 0.6s; }
+        .menu-section:nth-child(4) { animation-delay: 0.8s; }
+
+        .menu-section h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #8b3e2f;
+            text-decoration: underline;
+        }
+
+        /* IMAGE HOVER ZOOM */
+        img {
+            transition: 0.4s ease;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        /* LIST ITEMS */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #f7e7d9;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 18px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: 0.3s ease;
+        }
+
+        li:hover {
+            background: #f0d7c5;
+            transform: scale(1.03);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* ROOMS IMAGES ANIMATION */
+        #rooms img {
+            opacity: 0;
+            transform: scale(0.85);
+            animation: zoomIn 1s ease forwards;
+        }
+
+        #rooms img:nth-child(1) { animation-delay: 0.2s; }
+        #rooms img:nth-child(2) { animation-delay: 0.4s; }
+        #rooms img:nth-child(3) { animation-delay: 0.6s; }
+        #rooms img:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.85); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 18px 0;
+            background: linear-gradient(90deg, #7a2e1f, #a54330);
+            color: white;
+            font-size: 18px;
+            margin-top: 40px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+        }
+        /* Floating WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: floatIn 0.8s ease forwards;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.whatsapp-float img {
+    width: 35px;
+    height: 35px;
+}
+
+/* WhatsApp Floating Animation */
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Booking Form Popup */
+.booking-box {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 300px;
+    background: #ffffffdd;
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 999;
+    animation: slideUpBooking 0.8s ease forwards;
+}
+
+@keyframes slideUpBooking {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.booking-box h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.booking-box input,
+.booking-box select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.booking-box input:focus,
+.booking-box select:focus {
+    border-color: #ff944d;
+    box-shadow: 0 0 8px rgba(255,120,60,0.6);
+}
+
+.booking-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ff8c42;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.booking-btn:hover {
+    background: #ff7b26;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+/* Hide the checkbox */
+.book-toggle {
+    display: none;
+}
+
+/* Booking Icon */
+.booking-icon {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 60px;
+    height: 60px;
+    background: #ff8c42;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: 0.3s ease;
+}
+
+.booking-icon:hover {
+    transform: scale(1.12);
+}
+
+/* Booking Box */
+.booking-box {
+    position: fixed;
+    bottom: -420px; /* hidden initially */
+    left: 20px;
+    width: 300px;
+    background: #ffffffdd;
+    backdrop-filter: blur(6px);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 998;
+    transition: bottom 0.4s ease;
+}
+
+/* Slide the box up when checkbox is checked */
+.book-toggle:checked ~ .booking-box {
+    bottom: 100px;
+}
+
+/* Form styling */
+.booking-box input,
+.booking-box select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    font-size: 15px;
+    outline: none;
+}
+
+.booking-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ff8c42;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.booking-btn:hover {
+    background: #ff7b26;
+}
+/* FOOD ORDER FLOATING BUTTON */
+.food-icon {
+    position: fixed;
+    bottom: 25px;
+    left: 100px; /* shifted right from booking icon */
+    width: 60px;
+    height: 60px;
+    background: #ff3b3b;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: 0.3s ease;
+}
+
+.food-icon:hover {
+    transform: scale(1.12);
+}
+
+/* FOOD ORDER BOX */
+.food-box {
+    position: fixed;
+    bottom: -420px; /* hidden initially */
+    left: 95px;
+    width: 300px;
+    background: #ffffffdd;
+    backdrop-filter: blur(6px);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 998;
+    transition: bottom 0.4s ease;
+}
+
+.food-toggle {
+    display: none;
+}
+
+/* Slide up when checked */
+.food-toggle:checked ~ .food-box {
+    bottom: 100px;
+}
+
+.food-box input,
+.food-box select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    outline: none;
+    font-size: 15px;
+}
+
+.food-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ff3b3b;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.food-btn:hover {
+    background: #d62929;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#food">Food Corner</a>
+    <a href="#rooms">Rooms</a>
+    <a href="#help">Help</a>
+</nav>
+
+<header>
+    <img src="D:\chitkara documents\semseter 1\ITW classes\ChatGPT Image Feb 9, 2026, 11_11_05 PM.png">
+    <h1>SEHJAL's RESORT</h1>
+    <h2>WELCOME TO RESORT</h2>
+</header>
+
+<div class="container">
+
+    <!-- FOOD -->
+    <div id="food">
+        <h2 class="section-title">FOOD CORNER</h2>
+
+        <div class="menu-section">
+            <h3>Appetizers</h3>
+
+            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" width="200">
+            <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e" width="200">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" width="200">
+
+            <ul>
+                <li>Spring Rolls - 100 INR</li>
+                <li>Garlic Bread - 120 INR</li>
+                <li>Bruschetta - 150 INR</li>
+            </ul>
+        </div>
+
+        <div class="menu-section">
+            <h3>Main Courses</h3>
+
+            <img src="D:\chitkara documents\semseter 1\ITW classes\vp.jpg" width="200", height="160">
+            <img src="D:\chitkara documents\semseter 1\ITW classes\gc.jpg" width="200",height="200">
+            <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141" width="200", height="160">
+
+            <ul>
+                <li>Grilled Chicken - 300 INR</li>
+                <li>Veggie Pasta - 250 INR</li>
+                <li>Beef Steak - 400 INR</li>
+            </ul>
+        </div>
+
+        <div class="menu-section">
+            <h3>Desserts</h3>
+
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587" width="200",height="200">
+            <img src="D:\chitkara documents\semseter 1\ITW classes\cm.jpg" width="200",height="200">
+            <img src="D:\chitkara documents\semseter 1\ITW classes\fs.jpg" width="200",height="160">
+
+            <ul>
+                <li>Cheesecake - 200 INR</li>
+                <li>Chocolate Mousse - 180 INR</li>
+                <li>Fruit Salad - 150 INR</li>
+            </ul>
+        </div>
+
+        <div class="menu-section">
+            <h3>Beverages</h3>
+
+            <img src="D:\chitkara documents\semseter 1\ITW classes\cofee.jpg" width="200",height="160">
+            <img src="D:\chitkara documents\semseter 1\ITW classes\tea.jpg" width="200",height="160">
+            <img src="D:\chitkara documents\semseter 1\ITW classes\fj.jpg" width="200",height="160">
+
+            <ul>
+                <li>Coffee - 100 INR</li>
+                <li>Tea - 80 INR</li>
+                <li>Fresh Juice - 120 INR</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ROOMS -->
+    <div id="rooms" class="menu-section">
+        <h3>Rooms</h3>
+
+        <img src="D:\chitkara documents\semseter 1\ITW classes\br.jpg" width="220">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750" width="220">
+        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae" width="220">
+        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267" width="220">
+
+        <ul>
+            <li>Basic Room - 1000 INR/day</li>
+            <li>AC Room - 1500 INR/day</li>
+            <li>Queen Size Room - 2000 INR/day</li>
+            <li>King Size Room - 2500 INR/day</li>
+            <li>Deluxe Room - 4500 INR/day</li>
+        </ul>
+    </div>
+
+    <!-- HELP -->
+    <div id="help" class="menu-section">
+        <h3>Help & Contact</h3>
+        <p>Contact: 93170*****</p>
+        <p>Address: Sehjal's Resort, Main Street, City Center</p>
+    </div>
+</div>
+<!-- Hidden Toggle Checkbox -->
+<input type="checkbox" id="book-toggle" class="book-toggle">
+
+<!-- Booking Icon -->
+<label for="book-toggle" class="booking-icon">
+    🏨
+</label>
+
+<!-- Booking Box -->
+<div class="booking-box">
+    <h2>Book Your Stay</h2>
+
+    <input type="text" placeholder="Your Name">
+
+    <label>Check-in Date</label>
+    <input type="date">
+
+    <label>Check-out Date</label>
+    <input type="date">
+
+    <label>Guests</label>
+    <select>
+        <option>1 Guest</option>
+        <option>2 Guests</option>
+        <option>3 Guests</option>
+        <option>4 Guests</option>
+    </select>
+
+    <button class="booking-btn">Confirm Booking</button>
+      
+</div>
+<!-- FOOD ORDER FORM -->
+
+<input type="checkbox" id="food-toggle" class="food-toggle">
+
+<!-- Floating Food Icon -->
+<label for="food-toggle" class="food-icon">
+    🍽️
+</label>
+
+<!-- Food Order Box -->
+<div class="food-box">
+    <h2>Food Order</h2>
+
+    <input type="text" placeholder="Your Name">
+
+    <label>Select Food</label>
+    <select>
+        <option>Spring Rolls - 100</option>
+        <option>Garlic Bread - 120</option>
+        <option>Bruschetta - 150</option>
+        <option>Grilled Chicken - 300</option>
+        <option>Veggie Pasta - 250</option>
+        <option>Cheesecake - 200</option>
+        <option>Fruit Salad - 150</option>
+    </select>
+
+    <label>Quantity</label>
+    <input type="number" min="1" value="1">
+
+    <button class="food-btn">Place Order</button>
+</div>
+<!-- Floating WhatsApp Button -->
+
+<a class="whatsapp-float" href="https://wa.me/91XXXXXXXXXX" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
+
+</body>
+</html>
